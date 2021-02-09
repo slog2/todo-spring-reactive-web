@@ -19,20 +19,30 @@ spring boot + kotlin 환경에서 webflux 를 사용한 함수형 rest api 를 �
 ## API TEST with curl
 
 ### create todo
+```
 curl -i -X POST http://localhost:8080/functional/todo -H 'content-type: application/json' -d '{"id":11, "name":"do anything"}'
+```
 
 ### create todo (json parse error 케이스)
+```
 curl -i -X POST http://localhost:8080/functional/todo -H 'content-type: application/json' -d '{{"id":11, "name":"do anything"}'
+```
 
 ### update todo
+```
 curl -i -X PUT http://localhost:8080/functional/todo/11 -H 'content-type: application/json' -d '{"id":11, "name":"do anything!!!!"}'
+```
 
 ### get todo
+```
 curl -i http://localhost:8080/functional/todo/11
-
+```
 ### get todos
+```
 curl -i http://localhost:8080/functional/todos?nameFilter=kotlin
+```
 
 ### delete todo
+```
 curl -i -X DELETE http://localhost:8080/functional/todo/11
-
+```
